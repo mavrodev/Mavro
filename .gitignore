@@ -1,0 +1,9 @@
+/build/
+/nbproject/
+Mavro-qt
+qrc_bitcoin.cpp
+*.P
+*.o
+/src/obj/build.h
+Mavrod
+.idea
