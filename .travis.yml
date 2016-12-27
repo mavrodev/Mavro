@@ -29,11 +29,13 @@ addons:
       - libssl-dev libdb++-dev
       - libminiupnpc-dev
       - libqrencode-dev
+      - apt-file
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update          ; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost db48 miniupnpc; fi
 
 script:
-  - qmake "USE_UPNP=1"
+  - apt-file search miniwget.h
+  - qmake "USE_UPNP=1" MINIUPNPC_INCLUDE_PATH=/usr/include/miniupnpc/miniwget.h
   - make
