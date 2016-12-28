@@ -1,14 +1,14 @@
 TEMPLATE = app
 TARGET = Mavro-qt
 VERSION = 1.0.0.1
-INCLUDEPATH += src src/json src/qt /usr/local/include
+INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE HAVE_CXX_STDHEADERS MINIUPNP_STATICLIB
 CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG += static
 
-QMAKE_CXXFLAGS = -fpermissive
-QT += network
+#QMAKE_CXXFLAGS = -fpermissive
+#QT += network
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
@@ -105,9 +105,9 @@ contains(BITCOIN_NEED_QT_PLUGINS, 1) {
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
 
-INCLUDEPATH += src/leveldb/include src/leveldb/helpers
-LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
-SOURCES += src/txdb-leveldb.cpp \
+#INCLUDEPATH += src/leveldb/include src/leveldb/helpers
+#LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
+SOURCES += # src/txdb-leveldb.cpp \
     src/bloom.cpp \
     src/hash.cpp \
     src/aes_helper.c \
