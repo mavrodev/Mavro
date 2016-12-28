@@ -4,30 +4,26 @@ matrix:
     - os: linux
       dist: trusty
       sudo: required
-      compiler:
-        - gcc
-      addons:
-      apt:
-       sources: ubuntu-toolchain-r-test
-       packages:
-         - qt5-default
-         - qt5-qmake
-         - qtbase5-dev-tools
-         - qttools5-dev-tools
-         - build-essential
-         - libboost-all-dev
-         - libboost-system-dev
-         - libboost-filesystem-dev
-         - libboost-program-options-dev
-         - libboost-thread-dev
-         - libssl-dev libdb++-dev
-         - libminiupnpc-dev
-         - libqrencode-dev
-    
     - os: osx
       osx_image: xcode8.2
-      compiler:
-        - clang
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - qt5-default 
+      - qt5-qmake
+      - qtbase5-dev-tools
+      - qttools5-dev-tools
+      - build-essential
+      - libboost-dev
+      - libboost-system-dev
+      - libboost-filesystem-dev
+      - libboost-program-options-dev
+      - libboost-thread-dev
+      - libssl-dev libdb++-dev
+      - libminiupnpc-dev
+      - libqrencode-dev
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
