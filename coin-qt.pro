@@ -19,7 +19,7 @@ win32 {
 
 }
 
-
+FIND_PACKAGE(Boost REQUIRED)
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
