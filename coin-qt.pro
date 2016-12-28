@@ -10,7 +10,7 @@ CONFIG += static
 QMAKE_CXXFLAGS = -fpermissive
 QT += network webkit
 greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += webkit
+    QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
