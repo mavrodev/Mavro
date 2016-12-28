@@ -9,7 +9,7 @@ matrix:
       addons:
       apt:
        sources: ubuntu-toolchain-r-test
-        packages:
+       packages:
          - qt5-default
          - qt5-qmake
          - qtbase5-dev-tools
