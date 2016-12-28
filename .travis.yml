@@ -9,20 +9,20 @@ matrix:
       addons:
       apt:
        sources: ubuntu-toolchain-r-test
-        packages: 
-          - qt5-default 
-          - qt5-qmake
-          - qtbase5-dev-tools
-          - qttools5-dev-tools
-          - build-essential
-          - libboost-dev
-          - libboost-system-dev
-          - libboost-filesystem-dev
-          - libboost-program-options-dev
-          - libboost-thread-dev
-          - libssl-dev libdb++-dev
-          - libminiupnpc-dev
-          - libqrencode-dev
+        packages:
+         - qt5-default
+         - qt5-qmake
+         - qtbase5-dev-tools
+         - qttools5-dev-tools
+         - build-essential
+         - libboost-dev
+         - libboost-system-dev
+         - libboost-filesystem-dev
+         - libboost-program-options-dev
+         - libboost-thread-dev
+         - libssl-dev libdb++-dev
+         - libminiupnpc-dev
+         - libqrencode-dev
     
     - os: osx
       osx_image: xcode8.2
@@ -38,9 +38,10 @@ before_install:
   #- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa -y; fi
   #- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update -qq; fi
   #- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools libqt5webkit5-dev -y; fi
-install:
+#install:
   #- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget http://miniupnp.free.fr/files/download.php?file=miniupnpc-2.0.tar.gz -O miniupnpc-2.0.tar.gz&&tar -xzf miniupnpc-2.0.tar.gz&&cd miniupnpc-2.0&&sudo make install&&cd ..&&wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz&&tar -xf db-4.8.30.NC.tar.gz&&cd db-4.8.30.NC/build_unix&&mkdir -p build&&../dist/configure --enable-cxx --disable-shared --with-pic&&cd ../..; fi
   #- wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz&&tar -xf db-4.8.30.NC.tar.gz&&cd db-4.8.30.NC/build_unix&&mkdir -p build&&../dist/configure LDFLAGS='-arch x86_64 -arch i386' CFLAGS='-arch x86_64 -arch i386'&&make&&sudo make install&&cd ../..&&/usr/local/BerkeleyDB.4.8/db_archive -V
 script:
-  - qmake "USE_UPNP=1" #BDB_INCLUDE_PATH='/usr/include/db4.8'
+  - qmake "USE_UPNP=1" 
+  #BDB_INCLUDE_PATH='/usr/include/db4.8'
   - make
