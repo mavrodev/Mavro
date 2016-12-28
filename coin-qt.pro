@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = Mavro-qt
 VERSION = 1.0.0.1
-INCLUDEPATH += src src/json src/qt
+INCLUDEPATH += src src/json src/qt /usr/local/include
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE HAVE_CXX_STDHEADERS MINIUPNP_STATICLIB
 CONFIG += no_include_pwd
 CONFIG += thread
@@ -19,7 +19,6 @@ win32 {
 
 }
 
-FIND_PACKAGE(Boost REQUIRED)
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
 # for boost thread win32 with _win32 sufix
