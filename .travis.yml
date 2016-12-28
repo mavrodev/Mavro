@@ -24,7 +24,6 @@ script:
   - wget http://miniupnp.free.fr/files/download.php?file=miniupnpc-2.0.tar.gz -O miniupnpc-2.0.tar.gz
   - tar -xzvf miniupnpc-2.0.tar.gz
   - cd miniupnpc-2.0
-  - make
   - sudo make install
   - qmake -qt=qt5 "USE_UPNP=1"
   - make
