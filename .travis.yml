@@ -13,6 +13,7 @@ matrix:
           - g++-4.8
           - gcc-4.8
           - libboost-dev 
+          - libboost-all-dev
           - libboost-system-dev
           - libboost-filesystem-dev 
           - libboost-program-options-dev
