@@ -39,7 +39,6 @@ script:
 - qmake "USE_UPNP=1"
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make&&mv Mavro-qt mavro-osx-qt; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make&&mv Mavro-qt mavro-linux-qt; fi
-- find Mavro-qt
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls mavro-*-qt)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
