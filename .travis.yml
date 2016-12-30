@@ -37,11 +37,11 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz --force; fi
 script:
 - qmake "USE_UPNP=1"
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make -C mavro-osx-qt; fi
-- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make -C mavro-linux-qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then make&&mv Mavro-qt mavro-osx-qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then make&&mv Mavro-qt mavro-linux-qt; fi
 - find Mavro-qt
 before_deploy:
-  - export RELEASE_PKG_FILE=$(ls Mavro-*-qt)
+  - export RELEASE_PKG_FILE=$(ls mavro-*-qt)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
 deploy:
   provider: releases
