@@ -36,7 +36,7 @@ before_install:
   fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz --force; fi
 script:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then qmake "USE_UPNP=1" OPENSSL_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j OPENSSL_LIB_PATH=/usr/local/Cellar/openssl/1.0.2j BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.63.0 BOOST_LIB_PATH=/usr/local/Cellar/boost/1.63.0&&make&&mv Mavro-qt mavro-osx-qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ls /usr/local/Cellar/openssl/&&qmake "USE_UPNP=1" OPENSSL_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j OPENSSL_LIB_PATH=/usr/local/Cellar/openssl/1.0.2j BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.63.0 BOOST_LIB_PATH=/usr/local/Cellar/boost/1.63.0&&make&&mv Mavro-qt mavro-osx-qt; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then qmake "USE_UPNP=1"&&make&&mv Mavro-qt mavro-linux-qt; fi
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls mavro-*-qt)
