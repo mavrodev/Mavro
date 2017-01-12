@@ -26,18 +26,17 @@ addons:
     - libqrencode-dev
 before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink boost; fi
-#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew uninstall boost; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install protobuf berkeley-db miniupnpc qt5; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew linkapps qt5; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link qt5 --force; fi
-#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CC="gcc"; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink boost; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew uninstall boost; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install autoconf automake pkg-config protobuf berkeley-db miniupnpc qt; fi
+#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew linkapps qt5; fi
+#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link qt5 --force; fi
 #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link openssl --force; fi
-#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget 'https://github.com/mavrodev/travis-homebrew-bottle/releases/download/boost-v1.63-cxx11/boost-1.63.0.el_capitan.bottle.1.tar.gz'; fi
-#- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz --force; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget 'https://github.com/mavrodev/travis-homebrew-bottle/releases/download/boost-v1.63-cxx11/boost-1.63.0.el_capitan.bottle.1.tar.gz';
+  fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz --force; fi
 script:
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CC="gcc"; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CC="gcc" qmake "USE_UPNP=1" OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib &&CC="gcc" make&&mv Mavro-qt mavro-osx-qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then qmake "USE_UPNP=1" OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.63.0 BOOST_LIB_PATH=/usr/local/Cellar/boost/1.63.0&&make&&mv Mavro-qt mavro-osx-qt; fi
 - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then qmake "USE_UPNP=1"&&make&&mv Mavro-qt mavro-linux-qt; fi
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls mavro-*-qt)
