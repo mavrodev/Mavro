@@ -46,7 +46,7 @@ deploy:
   api_key:
     secure: WEzubWFgie/UWa697KuJztzGWMpdHXCudEpWnAli8YSZyZEsVhIglh8mbluq4IQ0yORcDaVOaXAzgFlihaPnkTY40ANxjgTl6A6br/5BxOCzVGvemOnVuvj6x0nPkYqjxfG70K8oEoP9+ozf4zFqFFwn6vfgn47GRH5gujMkJqD+MB1bV+PoTNyKx1vy7NIcC94MTfaEyiwGkr5Wmx8QG2LYTpUgWgKHPVv3JE89G+pFVIV1kNHVpgEC6m5wgB/f3T6lr77XN/lq3PfMqNAB5zgOJZRkkYZ3akk9/a156SQqLV2ZoCkSwW6ICtqgZE6S6zB6q5uqynfspLFGcJJbEXO/2NX9QB+HrAkXa+3srpucFPww5XkwAUBAOp/uKCafItg0dERD8kkaqjkCsKs48u6v50U7Jfa4YBAQ3zF5fp2RcrToa71xB9HRYIIP54ILmVQc2kqCxrM8G6GgFvGPuQ3LJQ1QPv6VJS/Kwl2mWPD6GSeHGqC99kdE4yIri88SbnJjNV5hCtdV7Hi26iT9PBH06olhD8SuvN0A7vzq73kiqwIr1RAdwzRAf8pvxY2KDzrnGzBso1MlylG8MBiv8f0E6TGzXZdY0OBaCAXzKaIkLZCLs2uc21qKHtH1rJiCjCKvQ+VBdWTTxauEhZSjD5ENyWk26NTo7ayJaF/dO2o=
   file_glob: true
-  file: "${RELEASE_PKG_FILE}"
+  file: "mavro-*-qt"
   on:
     repo: mavrodev/Mavro
     all_branches: true
