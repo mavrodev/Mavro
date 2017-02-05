@@ -47,6 +47,7 @@ script:
 before_deploy:
   - export RELEASE_PKG_FILE=$(ls mavro.zip)
   - echo "deploying $RELEASE_PKG_FILE to GitHub releases"
+  - git add mavro.zip
 deploy:
   provider: releases
   api_key:
