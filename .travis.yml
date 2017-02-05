@@ -1,4 +1,4 @@
-language: c++
+language: c
 cache:
   directories:
   - $TRAVIS_BUILD_DIR
