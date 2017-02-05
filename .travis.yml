@@ -10,6 +10,7 @@ matrix:
  #   sudo: required
   - os: osx
     osx_image: xcode7.3
+  - compiler: clang
 
 #addons:
 #  apt:
