@@ -55,5 +55,4 @@ deploy:
   file_glob: true
   file: "mavro.zip"
   on:
-    repo: mavrodev/Mavro
-    all_branches: true
+    tags: true
