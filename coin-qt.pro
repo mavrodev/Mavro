@@ -40,7 +40,7 @@ UI_DIR = build
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.11, 32-bit)
     macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk -std=c++11 -stdlib=libc++
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk -std=c++11 -static-libstdc++
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk
     macx:LIBS += -Wl,-Bstatic
     !windows:!macx {
