@@ -55,4 +55,8 @@ deploy:
   file_glob: true
   file: "mavro.zip"
   on:
-    tags: true
+    repo: mavrodev/Mavro
+    branch: master
+    repo: username/Repo
+after_success:
+- sh set_tags.sh
