@@ -57,6 +57,5 @@ deploy:
   on:
     repo: mavrodev/Mavro
     branch: master
-    repo: username/Repo
 after_success:
 - sh set_tags.sh
