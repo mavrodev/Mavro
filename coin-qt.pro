@@ -42,7 +42,7 @@ contains(RELEASE, 1) {
     macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -std=c++11 -stdlib=libc++
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk 
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk
-    macx:LIBS += -Wl,-Bstatic
+    macx:LIBS += -Wl,-static
     !windows:!macx {
         # Linux: static link
         LIBS += -Wl,-Bstatic
