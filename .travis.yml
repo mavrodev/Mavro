@@ -31,7 +31,6 @@ matrix:
 #    - libminiupnpc-dev
 #    - libqrencode-dev
 before_install:
-- xcode-select --install
 - sudo xcode-select --switch /Library/Developer/CommandLineTools/
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink boost; fi
