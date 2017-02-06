@@ -35,8 +35,8 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew unlink boost; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew uninstall --ignore-dependencies boost; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gcc protobuf berkeley-db4 miniupnpc qt; fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --overwrite gcc; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install protobuf berkeley-db4 miniupnpc qt; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade gcc; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew linkapps qt5; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link qt5 --force; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link openssl --force; fi
