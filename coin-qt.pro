@@ -46,7 +46,8 @@ contains(RELEASE, 1) {
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk 
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
     macx:ENABLE_BITCODE=NO
-    macx:LIBS += -Wl, -static
+    macx:LIBS += -Wl, -static, -static-libgcc
+    macx:DEFINES += QT_STATIC_BUILD
     !windows:!macx {
         # Linux: static link
         LIBS += -Wl,-Bstatic
@@ -470,8 +471,7 @@ macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
 macx:TARGET = "Mavro-qt"
 macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.12
-macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12 
-#-lstdc++
+macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12 -static -static-libgcc
 macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.12 -std=c++11 -stdlib=libc++
 macx:QMAKE_ENABLE_BITCODE=NO
 
