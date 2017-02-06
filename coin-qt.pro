@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
 QMAKE_CXXFLAGS = -fpermissive
 QMAKE_MAC_SDK = macosx10.12
+QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.12
 BDB_LIB_SUFFIX=-4.8
 
 greaterThan(QT_MAJOR_VERSION, 4) {
@@ -470,6 +471,7 @@ macx:TARGET = "Mavro-qt"
 macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.12
 macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12
 macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.12 -std=c++11 -stdlib=libc++
+macx:ENABLE_BITCODE=NO
 
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
