@@ -39,9 +39,9 @@ UI_DIR = build
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.11, 32-bit) /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk -std=c++11 -stdlib=libc++
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk 
-    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.11 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.11.sdk
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.12.sdk -std=c++11 -stdlib=libc++
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.12.sdk 
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.12.sdk
     macx:LIBS += -Wl,-static
     !windows:!macx {
         # Linux: static link
@@ -465,9 +465,9 @@ macx:LIBS += -framework Foundation -framework ApplicationServices -framework App
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
 macx:TARGET = "Mavro-qt"
-macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.11
-macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.11
-macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.11 -std=c++11 -stdlib=libc++
+macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.12
+macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12
+macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.12 -std=c++11 -stdlib=libc++
 
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
