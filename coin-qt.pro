@@ -470,7 +470,7 @@ macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/bitcoin.icns
 macx:TARGET = "Mavro-qt"
 macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.12
-macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12 -lstdc++ -fembed-bitcode-marker
+macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12 -lstdc++
 macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.12 -std=c++11 -stdlib=libc++
 macx:QMAKE_ENABLE_BITCODE=NO
 
