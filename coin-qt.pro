@@ -46,7 +46,8 @@ contains(RELEASE, 1) {
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk 
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
     macx:ENABLE_BITCODE=NO
-    macx:LIBS += -Wl,-static
+    macx:LIBS += -Wl
+    #-static
     !windows:!macx {
         # Linux: static link
         LIBS += -Wl,-Bstatic
