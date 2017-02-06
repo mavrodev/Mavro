@@ -1,4 +1,4 @@
-language: c
+#language: c
 cache:
   directories:
   - $TRAVIS_BUILD_DIR
@@ -10,7 +10,7 @@ matrix:
  #   sudo: required
   - os: osx
     osx_image: xcode8.2
-  #- compiler: clang
+  - compiler: clang
 
 #addons:
 #  apt:
@@ -41,7 +41,7 @@ before_install:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link openssl --force; fi
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then wget 'https://github.com/mavrodev/travis-homebrew-bottle/releases/download/boost-v1.63-cxx11/boost-1.63.0.el_capitan.bottle.1.tar.gz';
   fi
-- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz --force; fi
+- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install boost-1.63.0.el_capitan.bottle.1.tar.gz ; fi
 script:
 - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ENABLE_BITCODE=NO MACOSX_DEPLOYMENT_TARGET=10.12 qmake "RELEASE=1" "USE_UPNP=1" OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include BDB_LIB_PATH=/usr/local/opt/berkeley-db4/lib MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib BOOST_INCLUDE_PATH=/usr/local/opt/boost/include BOOST_LIB_PATH=/usr/local/opt/boost/lib&&make&& find $TRAVIS_BUILD_DIR/ -name Mavro-*&&zip -r mavro.zip /Users/travis/build/mavrodev/Mavro/Mavro-qt.app; fi
 #OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.63.0 BOOST_LIB_PATH=/usr/local/Cellar/boost/1.63.0&&make&&mv Mavro-qt mavro-osx-qt; fi
