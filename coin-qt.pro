@@ -10,6 +10,7 @@ CONFIG += static
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
 QMAKE_CXXFLAGS = -fpermissive
+QMAKE_MAC_SDK = macosx10.12
 BDB_LIB_SUFFIX=-4.8
 
 greaterThan(QT_MAJOR_VERSION, 4) {
