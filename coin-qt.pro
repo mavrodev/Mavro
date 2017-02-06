@@ -471,7 +471,7 @@ macx:TARGET = "Mavro-qt"
 macx:QMAKE_CFLAGS_THREAD += -mmacosx-version-min=10.12
 macx:QMAKE_LFLAGS_THREAD += -mmacosx-version-min=10.12
 macx:QMAKE_CXXFLAGS_THREAD += -mmacosx-version-min=10.12 -std=c++11 -stdlib=libc++
-macx:ENABLE_BITCODE=NO
+macx:QMAKE_ENABLE_BITCODE=NO
 
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
