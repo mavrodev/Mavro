@@ -32,8 +32,7 @@ win32 {
 # or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
 
 # Dependency library locations can be customized with:
-#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
-#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
+
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -46,8 +45,17 @@ contains(RELEASE, 1) {
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk 
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
     macx:ENABLE_BITCODE=NO
-    #macx:LIBS += -Wl, -Bstatic
-#    macx:QMAKE_LFLAGS += -Wl 
+    #macx:HEADERS += 
+    macx:OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
+    macx:BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include
+    macx:BOOST_INCLUDE_PATH=/usr/local/opt/boost/include
+    macx:LIBS += -L/usr/local/opt/qt5/lib/
+    macx:LIBS += -L/usr/lib
+    macx:LIBS += -L/usr/local/lib 
+    macx:OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib 
+    macx:BDB_LIB_PATH=/usr/local/opt/berkeley-db4/lib 
+    macx:BOOST_LIB_PATH=/usr/local/opt/boost/lib
+    macx:QMAKE_LFLAGS += -Wl, -Bstatic
     macx:DEFINES += QT_STATIC_BUILD
     !windows:!macx {
         # Linux: static link
@@ -87,7 +95,9 @@ contains(USE_UPNP, -) {
         USE_UPNP=1
     }
     DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
+    macx:MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
+    macx:MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib
     LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc 
     win32:LIBS += -liphlpapi
 }
