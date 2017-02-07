@@ -52,7 +52,7 @@ contains(RELEASE, 1) {
     macx:LIBS += -L/usr/local/opt/qt5/lib/
     macx:LIBS += -L/usr/lib
     macx:LIBS += -L/usr/local/lib 
-    macx:LIBS += -Wl, -Bstatic, -lboost_regex, -lQtWidgets, -lQtGui, -lQtCore, -lQtNewtwork, -lminiupnpc, -lopenssl, -lberkeley-db4, -Bdynamic
+    macx:LIBS += -Wl, -Bstatic, -lboost, -lQtWidgets, -lQtGui, -lQtCore, -lQtNewtwork, -lminiupnpc, -lopenssl, -lberkeley-db4, -Bdynamic
     macx:OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib 
     macx:BDB_LIB_PATH=/usr/local/opt/berkeley-db4/lib 
     macx:BOOST_LIB_PATH=/usr/local/opt/boost/lib
