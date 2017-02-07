@@ -1,4 +1,5 @@
 TEMPLATE = app
+DEPSDIR = /usr/local/opt
 TARGET = Mavro-qt
 VERSION = 1.0.0.1
 INCLUDEPATH += src src/json src/qt
@@ -44,18 +45,24 @@ contains(RELEASE, 1) {
     macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk -stdlib=libc++
     macx:QMAKE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk 
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.12 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk
-    macx:ENABLE_BITCODE=NO
-    #macx:HEADERS += 
     macx:OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
     macx:BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include
     macx:BOOST_INCLUDE_PATH=/usr/local/opt/boost/include
-    macx:LIBS += -L/usr/local/opt/qt5/lib/
+    macx:LIBS += $(DEPSDIR)qt5/lib/
     macx:LIBS += -L/usr/lib
     macx:LIBS += -L/usr/local/lib 
-    macx:LIBS += -Wl, -Bstatic, -lQtWidgets, -lQtGui, -lQtCore, -lQtNewtwork, -lminiupnpc, -lopenssl, -lberkeley-db4, -Bdynamic
-    macx:OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib 
-    macx:BDB_LIB_PATH=/usr/local/opt/berkeley-db4/lib 
+    macx:LIBS += -Wl, -Bstatic, -lQtWidgets, -Bdynamic
+    macx:OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib/
+    macx:LIBS += /usr/local/opt/openssl/lib/libssl.a \
+    /usr/local/opt/openssl/lib/libcrypto.a
+    macx:BDB_LIB_PATH=/usr/local/opt/berkeley-db4/lib/
+    macx:LIBS +=/usr/local/opt/berkeley-db4/lib/libdb_cxx-4.8.a 
     macx:BOOST_LIB_PATH=/usr/local/opt/boost/lib
+    macx:LIBS += \
+ $(DEPSDIR)/boost/lib/libboost_system-mt.a \
+ $(DEPSDIR)/boost/lib/libboost_filesystem-mt.a \
+ $(DEPSDIR)/boost/lib/libboost_program_options-mt.a \
+ $(DEPSDIR)/boost/lib/libboost_thread-mt.a \
     macx:QMAKE_LFLAGS += -Wl, -Bstatic
     macx:DEFINES += QT_STATIC_BUILD
     !windows:!macx {
@@ -98,8 +105,8 @@ contains(USE_UPNP, -) {
     DEFINES += USE_UPNP=$$USE_UPNP STATICLIB
     macx:MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
     INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
-    macx:MINIUPNPC_LIB_PATH=/usr/local/opt/miniupnpc/lib
-    LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc 
+    macx:LIBS += /usr/local/opt/miniupnpc/lib/libminiupnpc.a
+    #LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc 
     win32:LIBS += -liphlpapi
 }
 
